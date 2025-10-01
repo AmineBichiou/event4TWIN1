@@ -25,7 +25,7 @@ export class ListEventComponent {
     id: 2,
     titre: "Conférence Tech IA",
     description: "Discussion autour des dernières tendances en intelligence artificielle.",
-    date: new Date("2025-11-02T09:00:00"),
+    date: new Date("2025-09-02T09:00:00"),
     lieu: "Centre de Congrès",
     prix: 0, // gratuit
     organisateurId: 102,
@@ -59,6 +59,18 @@ export class ListEventComponent {
   }
 ];
 
+likeEvent(event: Event) {
+  return event.nbrlikes += 1;
+  
+}
+TicketEvent(event : Event)
+{
+   event.nbplaces -=1
+
+}
+IsExpired ( event : Event){
+  return new Date(event.date) < new Date()
+}
 
 
 }
