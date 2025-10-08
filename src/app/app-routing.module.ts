@@ -6,11 +6,11 @@ import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
-  {path:'list', component:ListEventComponent,
+  {path:'list', component:ListEventComponent},
+  {path:'', redirectTo:'list', pathMatch:'full'},
   //   children:[
   // {path:'test',component:HomeComponent}
   // ]
-},
   {path:'**', component:NotfoundComponent}
 ];
 

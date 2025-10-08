@@ -59,6 +59,9 @@ export class ListEventComponent {
   }
 ];
 
+// filteredEvents: Event[] = [...this.EVENTS];
+searchItem:string='';
+
 likeEvent(event: Event) {
   return event.nbrlikes += 1;
   
@@ -70,6 +73,17 @@ TicketEvent(event : Event)
 }
 IsExpired ( event : Event){
   return new Date(event.date) < new Date()
+}
+//  filterEvents(event: any) {
+//     const query = event.target.value.toLowerCase();
+//     this.filteredEvents = this.EVENTS.filter(e =>
+//       e.titre.toLowerCase().includes(query) ||
+//       e.description.toLowerCase().includes(query) ||
+//       e.lieu.toLowerCase().includes(query)
+//     );
+//   }
+filter(){
+  return this.EVENTS.filter((e) => e.titre.toLowerCase().includes(this.searchItem.toLowerCase()));
 }
 
 
