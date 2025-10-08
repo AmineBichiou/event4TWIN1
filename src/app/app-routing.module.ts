@@ -10,6 +10,10 @@ const routes: Routes = [
   {path:'', redirectTo:'list', pathMatch:'full'},
   //   children:[
   // {path:'test',component:HomeComponent}
+  { path: 'tickets', loadChildren: () => import('./features/tickets/tickets.module').then(m => m.TicketsModule) },
+  { path: 'events', loadChildren: () => import('./features/events/events.module').then(m => m.EventsModule) },
+  { path: 'event-details', loadChildren: () => import('./features/events/event-details/event-details.module').then(m => m.EventDetailsModule) },
+  { path: 'list-event', loadChildren: () => import('./features/events/list-event/list-event.module').then(m => m.ListEventModule) },
   // ]
   {path:'**', component:NotfoundComponent}
 ];
