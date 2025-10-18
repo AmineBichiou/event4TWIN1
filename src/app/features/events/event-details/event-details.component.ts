@@ -1,10 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AppEvent, DataService } from '../../../shared/services/data.service';
 
 @Component({
   selector: 'app-event-details',
   templateUrl: './event-details.component.html',
-  styleUrl: './event-details.component.css'
+  styleUrls: ['./event-details.component.css']
 })
-export class EventDetailsComponent {
+export class EventDetailsComponent implements OnInit {
+  event?: AppEvent;
 
+  constructor(
+    private route: ActivatedRoute,
+    private dataService: DataService
+  ) {}
+
+  ngOnInit(): void {
+    const eventId = Number(this.route.snapshot.paramMap.get('id'));
+    this.event = this.dataService.getEventById(eventId);
+  }
 }
